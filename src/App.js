@@ -1,16 +1,19 @@
 import React from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import { Button } from "reactstrap";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-const googleAuthRoute = "localhost:5000/auth/google";
+// Import Components
+import Index from "./components/Index";
+import Err from "./components/Err";
 
-function App() {
-  return (
-    <div className="App">
-      <Button href={googleAuthRoute}>login</Button>
-    </div>
-  );
-}
+require("dotenv").config();
+const App = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={Index} />
+      <Route path="*" component={Err} />
+    </Switch>
+  </BrowserRouter>
+);
 
 export default App;
