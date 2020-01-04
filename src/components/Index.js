@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "./indexComponents/Navbar";
+import NavBar from "./indexComponents/Navbar";
 
 const Index = () => {
-  return <Navbar />;
+  return <NavBar />;
 };
 
 export default Index;
