@@ -19,18 +19,12 @@ const NavBar = props => {
     <div>
       <Navbar className="navi" light expand="md">
         <NavbarBrand href="/">soundLoud</NavbarBrand>
-
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar></Nav>
           <NavItem className="navItem">
             <NavLink href={googleAuthLink}>
-              <Button className="button">Sign In</Button>
-            </NavLink>
-          </NavItem>
-          <NavItem className="navItem">
-            <NavLink href={googleAuthLink}>
-              <Button className="button">Sign Up</Button>
+              <Button className="button">Log Out</Button>
             </NavLink>
           </NavItem>
         </Collapse>

@@ -4,7 +4,6 @@ body {
 
 .button {
   background-color: #360ccc;
-  margin: 0.1rem;
   border: 0;
   padding: 0.7rem;
 }
@@ -14,6 +13,11 @@ body {
 }
 
 .naver {
+  float: right;
   display: flex;
   justify-content: flex-end;
+}
+
+.navItem {
+  list-style: none;
 }
