@@ -18,7 +18,7 @@ const NavBar = props => {
   return (
     <div>
       <Navbar className="navi" light expand="md">
-        <NavbarBrand href="/" className="title">
+        <NavbarBrand href="/" className="title" style={{ color: "gold" }}>
           soundloud
         </NavbarBrand>
 
