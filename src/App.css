@@ -2,6 +2,11 @@ body {
   background-color: black;
 }
 
+.title {
+  color: white;
+  font-family: "Caveat", cursive;
+}
+
 .button {
   background-color: #360ccc;
   border: 0;

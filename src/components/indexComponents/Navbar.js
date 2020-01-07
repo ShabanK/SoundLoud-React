@@ -18,7 +18,9 @@ const NavBar = props => {
   return (
     <div>
       <Navbar className="navi" light expand="md">
-        <NavbarBrand href="/">soundLoud</NavbarBrand>
+        <NavbarBrand href="/" className="title">
+          soundloud
+        </NavbarBrand>
 
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
