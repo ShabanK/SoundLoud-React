@@ -18,7 +18,9 @@ const NavBar = props => {
   return (
     <div>
       <Navbar className="navi" light expand="md">
-        <NavbarBrand href="/">soundLoud</NavbarBrand>
+        <NavbarBrand href="/" className="title" style={{ color: "gold" }}>
+          soundloud
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar></Nav>
