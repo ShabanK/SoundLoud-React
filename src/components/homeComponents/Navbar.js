@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Collapse,
   Navbar,
@@ -9,12 +9,23 @@ import {
   NavLink,
   Button
 } from "reactstrap";
+import axios from "axios";
 
 const NavBar = props => {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState(null);
 
   const toggle = () => setIsOpen(!isOpen);
   const googleAuthLink = "http://localhost:5000/auth/google";
+  const userRoute = "http://localhost:5000/postauth";
+
+  useEffect(() => {
+    axios.get(userRoute).then(obj => {
+      console.log(obj);
+      // setUser(obj.username);
+    });
+  }, []);
+
   return (
     <div>
       <Navbar className="navi" light expand="md">
@@ -24,6 +35,9 @@ const NavBar = props => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar></Nav>
+          <NavItem className="navbar-brand text-white">
+            {user !== null || undefined ? `Welcome, ${user}` : `Loading...`}
+          </NavItem>
           <NavItem className="navItem">
             <NavLink href={googleAuthLink}>
               <Button className="button">Log Out</Button>
