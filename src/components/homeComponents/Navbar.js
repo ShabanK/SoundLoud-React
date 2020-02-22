@@ -22,12 +22,18 @@ const NavBar = props => {
   useEffect(() => {
     async function fetchUser() {
       try {
-        await axios.get(userRoute, { credentials: "include" }).then(
-          obj => {
-            console.log(obj);
-          }
-          // setUser(obj.username);
-        );
+        await fetch(userRoute, { credentials: "include" })
+          .then(res => res.json())
+          .then(res => {
+            console.log(res);
+            setUser(res.username);
+          });
+        // await axios.get(userRoute, { credentials: "include" }).then(
+        //   obj => {
+        //     console.log(obj);
+        //   }
+        // setUser(obj.username);
+        // );
       } catch (err) {
         console.error(err);
       }
