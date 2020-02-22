@@ -16,14 +16,23 @@ const NavBar = props => {
   const [user, setUser] = useState(null);
 
   const toggle = () => setIsOpen(!isOpen);
-  const googleAuthLink = "http://localhost:5000/auth/google";
+  const googleAuthLink = "http://localhost:5000/auth/logout";
   const userRoute = "http://localhost:5000/postauth";
 
   useEffect(() => {
-    axios.get(userRoute).then(obj => {
-      console.log(obj);
-      // setUser(obj.username);
-    });
+    async function fetchUser() {
+      try {
+        await axios.get(userRoute, { credentials: "include" }).then(
+          obj => {
+            console.log(obj);
+          }
+          // setUser(obj.username);
+        );
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    fetchUser();
   }, []);
 
   return (
