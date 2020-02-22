@@ -20,7 +20,9 @@ const NavBar = props => {
   useEffect(() => {
     async function rerouteCheck() {
       try {
-        await fetch(userRoute, { credentials: "include" });
+        await fetch(userRoute, { credentials: "include" }).then(() => {
+          console.log("yay");
+        });
       } catch (err) {
         console.log(err);
       }
