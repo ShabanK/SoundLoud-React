@@ -9,7 +9,6 @@ import {
   NavLink,
   Button
 } from "reactstrap";
-import axios from "axios";
 
 const NavBar = props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,15 +24,12 @@ const NavBar = props => {
         await fetch(userRoute, { credentials: "include" })
           .then(res => res.json())
           .then(res => {
-            console.log(res);
-            setUser(res.username);
+            let first =
+              res.username.indexOf(" ") === -1
+                ? res.username
+                : res.username.substr(0, res.username.indexOf(" "));
+            setUser(first);
           });
-        // await axios.get(userRoute, { credentials: "include" }).then(
-        //   obj => {
-        //     console.log(obj);
-        //   }
-        // setUser(obj.username);
-        // );
       } catch (err) {
         console.error(err);
       }

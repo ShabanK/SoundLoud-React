@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Collapse,
   Navbar,
@@ -15,6 +15,19 @@ const NavBar = props => {
 
   const toggle = () => setIsOpen(!isOpen);
   const googleAuthLink = "http://localhost:5000/auth/google";
+  const userRoute = "http://localhost:5000/postauth2/";
+
+  useEffect(() => {
+    async function rerouteCheck() {
+      try {
+        await fetch(userRoute, { credentials: "include" });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    rerouteCheck();
+  }, []);
+
   return (
     <div>
       <Navbar className="navi" light expand="md">
@@ -28,11 +41,6 @@ const NavBar = props => {
           <NavItem className="navItem">
             <NavLink href={googleAuthLink}>
               <Button className="button">Sign In</Button>
-            </NavLink>
-          </NavItem>
-          <NavItem className="navItem">
-            <NavLink href={googleAuthLink}>
-              <Button className="button">Sign Up</Button>
             </NavLink>
           </NavItem>
         </Collapse>
